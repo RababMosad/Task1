@@ -3,18 +3,18 @@ on:
     branches:
       - master
 
+
+
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-     - uses:  actions/checkout@v3 
+      - name: 'Testing Github action'
+        run: pwd
 
-     - name: "Login to Dockerhub"
-       run : docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_TOKEN }}
+      - name: 'Testing printing'
+        run: echo Ahmed
 
-     - name: "Building docker image" 
-       run: docker build -t ${{ secrets.DOCKER_USERNAME }}/myimage .
-       
-     - name:  "pushing to Docker hub" 
-       run:  docker push ${{ secrets.DOCKER_USERNAME }}/myimage
